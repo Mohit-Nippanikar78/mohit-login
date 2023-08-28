@@ -10,16 +10,17 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 mongoose
   .connect(process.env.MONGO_URL, {
+    //.connect("mongodb+srv://rnippanikar7:mhtnipp77cluster1.9d5uwua.mongodb.net/",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(process.env.PORT || 3000, () => {
-      console.log("Server running on 3000");
+    app.listen(process.env.PORT || 3001, () => {
+      console.log("Server running on 3001");
     });
   });
+  
 app.get("/test", (req, res) => {
   res.send("Ready with 1.0.0 offline");
 });
-
-app.use("/notes", require("./routes/noteR.js"));
+app.use("/users", require("./routes/userR"));
