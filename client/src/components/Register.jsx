@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import { serverUrl } from "../utls";
 
 const Register = () => {
   let navigate = useNavigate()
@@ -10,7 +11,7 @@ const Register = () => {
     e.preventDefault();
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
-    axios.post("http://localhost:3001/users/register", {
+    axios.post(`${serverUrl}/users/register`, {
       username,
       password,
     }).then((res) => {

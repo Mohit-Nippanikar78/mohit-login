@@ -1,0 +1,1 @@
+export let serverUrl = import.meta.env.VITE_SERVER_URL;
